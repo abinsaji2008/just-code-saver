@@ -1,0 +1,34 @@
+IMPORTANT Firebase configuration reference
+Project: smart-d899d
+
+Web API Key:
+AIzaSyDoxgNroD1snyw_QmnBS-W85XIqFMhnBfk
+
+Auth Domain:
+smart-d899d.firebaseapp.com
+
+Realtime Database:
+https://smart-d899d-default-rtdb.firebaseio.com
+
+Storage Bucket:
+smart-d899d.firebasestorage.app
+
+Messaging Sender ID:
+931374301635
+
+App ID:
+1:931374301635:web:447b8bc6f0bbf57d31bd76
+
+Measurement ID:
+G-CWCJ224709
+
+Wi-Fi SSID:
+Aloor EXT
+
+Wi-Fi password:
+NOT STORED IN THIS FILE
+
+Firebase Authentication email/password:
+NOT STORED IN THIS FILE
+
+Use the credentials locally in 7.ino.
