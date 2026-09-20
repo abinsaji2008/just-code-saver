@@ -10,7 +10,6 @@
 // Network and Firebase credentials
 // =====================================================
 
-// Wi-Fi
 #define WIFI_SSID "Aloor EXT"
 #define WIFI_PASSWORD "PUT_WIFI_PASSWORD_HERE"
 
@@ -73,7 +72,9 @@ void setup()
 
   // Configure SSL client
   ssl_client.setInsecure();
-  ssl_client.setConnectionTimeout(1000);
+
+  // ESP32 core 2.0.17 provides setHandshakeTimeout()
+  // but not setConnectionTimeout().
   ssl_client.setHandshakeTimeout(5);
 
   // Initialize Firebase
@@ -105,7 +106,6 @@ void loop()
     {
       lastSendTime = currentTime;
 
-      // Read test values from Firebase
       Database.get(
         aClient,
         "/test/int",
@@ -181,7 +181,6 @@ void processData(AsyncResult &aResult)
 
     String payload = aResult.c_str();
 
-    // Handle int
     if (aResult.uid() == "RTDB_GetInt")
     {
       intValue = payload.toInt();
@@ -191,8 +190,6 @@ void processData(AsyncResult &aResult)
         intValue
       );
     }
-
-    // Handle float
     else if (aResult.uid() == "RTDB_GetFloat")
     {
       floatValue = payload.toFloat();
@@ -202,8 +199,6 @@ void processData(AsyncResult &aResult)
         floatValue
       );
     }
-
-    // Handle string
     else if (aResult.uid() == "RTDB_GetString")
     {
       stringValue = payload;
