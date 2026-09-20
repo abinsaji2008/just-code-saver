@@ -1,0 +1,15 @@
+Firebase configuration reference
+Project ID: smart-d899d
+API Key: AIzaSyDoxgNroD1snyw_QmnBS-W85XIqFMhnBfk
+Auth Domain: smart-d899d.firebaseapp.com
+Database URL: https://smart-d899d-default-rtdb.firebaseio.com
+Storage Bucket: smart-d899d.firebasestorage.app
+Messaging Sender ID: 931374301635
+App ID: 1:931374301635:web:447b8bc6f0bbf57d31bd76
+Measurement ID: G-CWCJ224709
+
+WiFi SSID: Aloor EXT
+
+Firebase Authentication email/password:
+Add the test user's email and password in the ESP32 sketch or a secure local file.
+Do not commit the Firebase account password to a public repository.
