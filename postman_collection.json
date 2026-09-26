@@ -1,7 +1,8 @@
 {
   "info": {
-    "name": "Kaggle Qwen Smart Patient Assistant",
-    "_postman_id": "kaggle-qwen-patient-assistant",
+    "name": "Kaggle Qwen Smart Patient Assistant - Full Tests",
+    "_postman_id": "kaggle-qwen-patient-assistant-full-tests",
+    "description": "Complete Postman test collection for the working Kaggle Qwen3-4B API. Includes health, all 8 hardware commands, general questions, and patient-assistant scenarios. The current saved API supports the 8 device actions plus none; patient workflows not yet implemented as actions are included as conversation tests.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
@@ -12,58 +13,300 @@
   ],
   "item": [
     {
-      "name": "Health",
+      "name": "01 - Health",
       "request": {
         "method": "GET",
         "header": [],
-        "url": {
-          "raw": "{{base_url}}/health",
-          "host": ["{{base_url}}"],
-          "path": ["health"]
-        }
+        "url": "{{base_url}}/health"
       }
     },
     {
-      "name": "Light 3 ON",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
+      "name": "02 - Device Actions",
+      "item": [
+        {
+          "name": "L1 ON",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Turn on light 1\"\n    }\n  ],\n  \"max_tokens\": 20\n}"
+            },
+            "url": "{{base_url}}/v1/chat/completions"
           }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Turn on light 3\"\n    }\n  ],\n  \"max_tokens\": 20\n}"
         },
-        "url": {
-          "raw": "{{base_url}}/v1/chat/completions",
-          "host": ["{{base_url}}"],
-          "path": ["v1", "chat", "completions"]
+        {
+          "name": "L1 OFF",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Turn off light 1\"\n    }\n  ],\n  \"max_tokens\": 20\n}"
+            },
+            "url": "{{base_url}}/v1/chat/completions"
+          }
+        },
+        {
+          "name": "L2 ON",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Turn on light 2\"\n    }\n  ],\n  \"max_tokens\": 20\n}"
+            },
+            "url": "{{base_url}}/v1/chat/completions"
+          }
+        },
+        {
+          "name": "L2 OFF",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Turn off light 2\"\n    }\n  ],\n  \"max_tokens\": 20\n}"
+            },
+            "url": "{{base_url}}/v1/chat/completions"
+          }
+        },
+        {
+          "name": "L3 ON",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Turn on light 3\"\n    }\n  ],\n  \"max_tokens\": 20\n}"
+            },
+            "url": "{{base_url}}/v1/chat/completions"
+          }
+        },
+        {
+          "name": "L3 OFF",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Turn off light 3\"\n    }\n  ],\n  \"max_tokens\": 20\n}"
+            },
+            "url": "{{base_url}}/v1/chat/completions"
+          }
+        },
+        {
+          "name": "F1 ON",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Turn on the fan\"\n    }\n  ],\n  \"max_tokens\": 20\n}"
+            },
+            "url": "{{base_url}}/v1/chat/completions"
+          }
+        },
+        {
+          "name": "F1 OFF",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Turn off the fan\"\n    }\n  ],\n  \"max_tokens\": 20\n}"
+            },
+            "url": "{{base_url}}/v1/chat/completions"
+          }
         }
-      }
+      ]
     },
     {
-      "name": "General Question",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
+      "name": "03 - General Questions",
+      "item": [
+        {
+          "name": "Prime Minister",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Who is the Prime Minister of India?\"\n    }\n  ],\n  \"max_tokens\": 20\n}"
+            },
+            "url": "{{base_url}}/v1/chat/completions"
           }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Who is the Prime Minister of India?\"\n    }\n  ],\n  \"max_tokens\": 20\n}"
         },
-        "url": {
-          "raw": "{{base_url}}/v1/chat/completions",
-          "host": ["{{base_url}}"],
-          "path": ["v1", "chat", "completions"]
+        {
+          "name": "Simple Calculation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"What is 25 multiplied by 4?\"\n    }\n  ],\n  \"max_tokens\": 20\n}"
+            },
+            "url": "{{base_url}}/v1/chat/completions"
+          }
+        },
+        {
+          "name": "Short Greeting",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Hello\"\n    }\n  ],\n  \"max_tokens\": 20\n}"
+            },
+            "url": "{{base_url}}/v1/chat/completions"
+          }
         }
-      }
+      ]
+    },
+    {
+      "name": "04 - Patient Assistant Scenarios (currently ACTION none)",
+      "description": "These tests are saved for the future patient-assistant workflow. The current API only whitelists the 8 device actions plus none, so these should currently return action=none.",
+      "item": [
+        {
+          "name": "Not Feeling Well",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"I am not feeling well.\"\n    }\n  ],\n  \"max_tokens\": 24\n}"
+            },
+            "url": "{{base_url}}/v1/chat/completions"
+          }
+        },
+        {
+          "name": "Call Contact",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Call my daughter Anu.\"\n    }\n  ],\n  \"max_tokens\": 24\n}"
+            },
+            "url": "{{base_url}}/v1/chat/completions"
+          }
+        },
+        {
+          "name": "Doctor Appointment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Set an appointment with my doctor for tomorrow morning.\"\n    }\n  ],\n  \"max_tokens\": 32\n}"
+            },
+            "url": "{{base_url}}/v1/chat/completions"
+          }
+        },
+        {
+          "name": "Emergency Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"I need emergency help.\"\n    }\n  ],\n  \"max_tokens\": 24\n}"
+            },
+            "url": "{{base_url}}/v1/chat/completions"
+          }
+        },
+        {
+          "name": "Refill Water",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Please refill my water.\"\n    }\n  ],\n  \"max_tokens\": 24\n}"
+            },
+            "url": "{{base_url}}/v1/chat/completions"
+          }
+        }
+      ]
     }
   ]
 }
