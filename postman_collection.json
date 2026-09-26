@@ -1,0 +1,69 @@
+{
+  "info": {
+    "name": "Kaggle Qwen Smart Patient Assistant",
+    "_postman_id": "kaggle-qwen-patient-assistant",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://YOUR-CURRENT-URL.trycloudflare.com"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": ["{{base_url}}"],
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "Light 3 ON",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Turn on light 3\"\n    }\n  ],\n  \"max_tokens\": 20\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/v1/chat/completions",
+          "host": ["{{base_url}}"],
+          "path": ["v1", "chat", "completions"]
+        }
+      }
+    },
+    {
+      "name": "General Question",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"Qwen/Qwen3-4B-Instruct-2507\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Who is the Prime Minister of India?\"\n    }\n  ],\n  \"max_tokens\": 20\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/v1/chat/completions",
+          "host": ["{{base_url}}"],
+          "path": ["v1", "chat", "completions"]
+        }
+      }
+    }
+  ]
+}
